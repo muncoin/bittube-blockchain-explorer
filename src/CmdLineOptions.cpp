@@ -18,7 +18,7 @@ namespace xmreg
         p.add("txhash", -1);
 
         options_description desc(
-                "bittube-blockchain-explorer, BitTube Blockchain Explorer");
+                "ipbc-blockchain-explorer, IPBC Blockchain Explorer");
 
         desc.add_options()
                 ("help,h", value<bool>()->default_value(false)->implicit_value(true),
@@ -48,7 +48,7 @@ namespace xmreg
                 ("enable-autorefresh-option", value<bool>()->default_value(false)->implicit_value(true),
                  "enable users to have the index page on autorefresh")
                 ("enable-emission-monitor", value<bool>()->default_value(false)->implicit_value(true),
-                 "enable BitTube total emission monitoring thread")
+                 "enable IPBC total emission monitoring thread")
                 ("port,p", value<string>()->default_value("8081"),
                  "default explorer port")
                 ("bindaddr,x", value<string>()->default_value("0.0.0.0"),
@@ -66,13 +66,13 @@ namespace xmreg
                 ("mempool-refresh-time", value<string>()->default_value("5"),
                  "time, in seconds, for each refresh of mempool state")
                 ("bc-path,b", value<string>(),
-                 "path to lmdb folder of the blockchain, e.g., ~/.bittube/lmdb")
+                 "path to lmdb folder of the blockchain, e.g., ~/.ipbc/lmdb")
                 ("ssl-crt-file", value<string>(),
                  "path to crt file for ssl (https) functionality")
                 ("ssl-key-file", value<string>(),
                  "path to key file for ssl (https) functionality")
-                ("daemon-url,d", value<string>()->default_value("http:://127.0.0.1:24182"),
-                 "BitTube daemon url");
+                ("daemon-url,d", value<string>()->default_value("http:://127.0.0.1:24282"),
+                 "IPBC daemon url");
 
 
         store(command_line_parser(acc, avv)

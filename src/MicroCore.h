@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "bittube_headers.h"
+#include "ipbc_headers.h"
 #include "tools.h"
 
 namespace xmreg

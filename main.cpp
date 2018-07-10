@@ -97,7 +97,7 @@ main(int ac, const char* av[])
     bool show_cache_times             {*show_cache_times_opt};
 
 
-    // set BitTube log output level
+    // set IPBC log output level
     uint32_t log_level = 0;
     mlog_configure("", true);
 
@@ -193,12 +193,12 @@ main(int ac, const char* av[])
     {
         // This starts new thread, which aim is
         // to calculate, store and monitor
-        // current total BitTube emission amount.
+        // current total IPBC emission amount.
 
         // This thread stores the current emission
         // which it has caluclated in
         // <blockchain_path>/emission_amount.txt file,
-        // e.g., ~/.bittube/lmdb/emission_amount.txt.
+        // e.g., ~/.ipbc/lmdb/emission_amount.txt.
         // So instead of calcualting the emission
         // from scrach whenever the explorer is started,
         // the thread is initalized with the values

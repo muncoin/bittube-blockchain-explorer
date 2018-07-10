@@ -6,7 +6,7 @@
 #ifndef CROWXMR_RPCCALLS_H
 #define CROWXMR_RPCCALLS_H
 
-#include "bittube_headers.h"
+#include "ipbc_headers.h"
 
 #include <mutex>
 #include <utility>
@@ -47,8 +47,8 @@ struct has_destructor
 
 namespace cryptonote
 {
-// declare struct in BitTube's cryptonote namespace.
-// BitTube should provide definition for this,
+// declare struct in IPBC's cryptonote namespace.
+// IPBC should provide definition for this,
 // but we need to have it declared as we are going to
 // check if its definition exist or not. depending on this
 // we decide what gets to be defined as
@@ -81,11 +81,11 @@ class rpccalls
 
 public:
 
-    rpccalls(string _daemon_url = "http:://127.0.0.1:24182",
+    rpccalls(string _daemon_url = "http:://127.0.0.1:24282",
              uint64_t _timeout = 200000);
 
     bool
-    connect_to_bittube_daemon();
+    connect_to_ipbc_daemon();
 
     uint64_t
     get_current_height();
@@ -130,7 +130,7 @@ public:
         {
             std::lock_guard<std::mutex> guard(m_daemon_rpc_mutex);
 
-            if (!connect_to_bittube_daemon())
+            if (!connect_to_ipbc_daemon())
             {
                 cerr << "get_alt_blocks: not connected to daemon" << endl;
                 return false;
@@ -156,14 +156,14 @@ public:
 
             if (!err.empty())
             {
-                cerr << "Error connecting to BitTube daemon due to "
+                cerr << "Error connecting to IPBC daemon due to "
                      << err << endl;
                 return false;
             }
         }
         else
         {
-            cerr << "Error connecting to BitTube daemon at "
+            cerr << "Error connecting to IPBC daemon at "
                  << daemon_url << endl;
             return false;
         }

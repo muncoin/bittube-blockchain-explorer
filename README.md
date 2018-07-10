@@ -1,4 +1,4 @@
-# BitTube Blockchain Explorer
+# IPBC Blockchain Explorer
 
 Based on [Onion Monero Blockchain Explorer](https://github.com/moneroexamples/onion-monero-blockchain-explorer)
 
@@ -6,11 +6,11 @@ Based on [Onion Monero Blockchain Explorer](https://github.com/moneroexamples/on
 
 Testnet version:
 
- - [http://testnet-explorer.bit.tube/](http://testnet-explorer.bit.tube/) - Official BitTube Testnet Block Explorer.
+ - [http://testnet-explorer.ipbc.rocks/](http://testnet-explorer.ipbc.rocks/) - Official IPBC Testnet Block Explorer.
 
-## BitTube Blockchain Explorer features
+## IPBC Blockchain Explorer features
 
-The key features of the BitTube Blockchain Explorer are:
+The key features of the IPBC Blockchain Explorer are:
 
  - no cookies, no web analytics trackers, no images,
  - by default no JavaScript, but can be enabled for client side decoding and proving transactions,
@@ -19,12 +19,12 @@ The key features of the BitTube Blockchain Explorer are:
  - showing encrypted payments ID,
  - showing ring signatures,
  - showing transaction extra field,
- - showing public components of BitTube addresses,
- - decoding which outputs and mixins belong to the given BitTube address and viewkey,
- - can prove that you send BitTube to someone,
+ - showing public components of IPBC addresses,
+ - decoding which outputs and mixins belong to the given IPBC address and viewkey,
+ - can prove that you send IPBC to someone,
  - detailed information about ring members, such as, their age, timescale and their ring sizes,
  - showing number of amount output indices,
- - support BitTube testnet and stagnet networks,
+ - support IPBC testnet and stagnet networks,
  - tx checker and pusher for online pushing of transactions,
  - estimate possible spendings based on address and viewkey,
  - can provide total amount of all miner fees,
@@ -33,12 +33,12 @@ The key features of the BitTube Blockchain Explorer are:
 
 ## Compilation on Ubuntu 16.04/18.04
 
-##### Compile latest BitTube development version
+##### Compile latest IPBC development version
 
-Download and compile recent BitTube into your home folder:
+Download and compile recent IPBC into your home folder:
 
 ```bash
-# first install BitTube dependecines
+# first install IPBC dependecines
 sudo apt update
 
 sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libzmq3-dev libsodium-dev libpcsclite-dev
@@ -46,27 +46,27 @@ sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound
 # go to home folder
 cd ~
 
-git clone --recursive https://github.com/ipbc-dev/bittube-coin.git bittube
+git clone --recursive https://github.com/muncoin/ipbc.git ipbc
 
-cd bittube/
+cd ipbc/
 
 make
 ```
 
 ##### Compile and run the explorer
 
-Once the BitTube is compiled, the explorer can be downloaded and compiled
+Once the IPBC is compiled, the explorer can be downloaded and compiled
 as follows:
 
 ```bash
-# go to home folder if still in ~/bittube
+# go to home folder if still in ~/ipbc
 cd ~
 
 # download the source code
-git clone https://github.com/ipbc-dev/bittube-blockchain-explorer.git
+git clone https://github.com/muncoin/ipbc-blockchain-explorer.git
 
 # enter the downloaded sourced code folder
-cd bittube-blockchain-explorer
+cd ipbc-blockchain-explorer
 
 # make a build folder and enter it
 mkdir build && cd build
@@ -74,8 +74,8 @@ mkdir build && cd build
 # create the makefile
 cmake ..
 
-# alternatively you can use: cmake -DBITTUBE_DIR=/path/to/bittube_folder ..
-# if BitTube is not in ~/bittube
+# alternatively you can use: cmake -DIPBC_DIR=/path/to/ipbc_folder ..
+# if IPBC is not in ~/ipbc
 #
 # also can build with ASAN (sanitizers), for example
 # cmake -DSANITIZE_ADDRESS=On ..
@@ -87,22 +87,22 @@ make
 
 To run it:
 ```
-./bittube-blockchain-explorer
+./ipbc-blockchain-explorer
 ```
 
-By default it will look for blockchain in its default location i.e., `~/.bittube/lmdb`.
+By default it will look for blockchain in its default location i.e., `~/.ipbc/lmdb`.
 You can use `-b` option if its in different location.
 
 For example:
 
 ```bash
-./bittube-blockchain-explorer -b /home/mwo/non-default-bittube-location/lmdb/
+./ipbc-blockchain-explorer -b /home/mwo/non-default-ipbc-location/lmdb/
 ```
 
 Example output:
 
 ```bash
-[mwo@arch bittube-blockchain-explorer]$ ./bittube-blockchain-explorer
+[mwo@arch ipbc-blockchain-explorer]$ ./ipbc-blockchain-explorer
 2016-May-28 10:04:49.160280 Blockchain initialized. last block: 1056761, d0.h0.m12.s47 time ago, current difficulty: 1517857750
 (2016-05-28 02:04:49) [INFO    ] Crow/0.1 server is running, local port 8081
 ```
@@ -112,7 +112,7 @@ Go to your browser: http://127.0.0.1:8081
 ## The explorer's command line options
 
 ```
-bittube-blockchain-explorer, BitTube Blockchain Explorer:
+ipbc-blockchain-explorer, IPBC Blockchain Explorer:
   -h [ --help ] [=arg(=1)] (=0)         produce help message
   -t [ --testnet ] [=arg(=1)] (=0)      use testnet blockchain
   -s [ --stagenet ] [=arg(=1)] (=0)     use stagenet blockchain
@@ -136,7 +136,7 @@ bittube-blockchain-explorer, BitTube Blockchain Explorer:
                                         enable users to have the index page on
                                         autorefresh
   --enable-emission-monitor [=arg(=1)] (=0)
-                                        enable BitTube total emission monitoring
+                                        enable IPBC total emission monitoring
                                         thread
   -p [ --port ] arg (=8081)             default explorer port
   --testnet-url arg                     you can specify testnet url, if you run
@@ -155,45 +155,45 @@ bittube-blockchain-explorer, BitTube Blockchain Explorer:
   --mempool-refresh-time arg (=5)       time, in seconds, for each refresh of
                                         mempool state
   -b [ --bc-path ] arg                  path to lmdb folder of the blockchain,
-                                        e.g., ~/.bittube/lmdb
+                                        e.g., ~/.ipbc/lmdb
   --ssl-crt-file arg                    path to crt file for ssl (https)
                                         functionality
   --ssl-key-file arg                    path to key file for ssl (https)
                                         functionality
   -d [ --daemon-url ] arg (=http:://127.0.0.1:24182)
-                                        BitTube daemon url
+                                        IPBC daemon url
 ```
 
 Example usage, defined as bash aliases.
 
 ```bash
 # for mainnet explorer
-alias bittube-blockchain-explorer-mainnet='~/bittube-blockchain-explorer/build/bittube-blockchain-explorer    --port 8081 --testnet-url "http://139.162.32.245:8082" --enable-pusher --enable-emission-monitor'
+alias ipbc-blockchain-explorer-mainnet='~/ipbc-blockchain-explorer/build/ipbc-blockchain-explorer    --port 8081 --testnet-url "http://139.162.32.245:8082" --enable-pusher --enable-emission-monitor'
 
 # for testnet explorer
-alias bittube-blockchain-explorer-testnet='~/bittube-blockchain-explorer/build/bittube-blockchain-explorer -t --port 8082 --mainnet-url "http://139.162.32.245:8081" --enable-pusher --enable-emission-monitor'
+alias ipbc-blockchain-explorer-testnet='~/ipbc-blockchain-explorer/build/ipbc-blockchain-explorer -t --port 8082 --mainnet-url "http://139.162.32.245:8081" --enable-pusher --enable-emission-monitor'
 ```
 
 These are aliases similar to those used for http://139.162.32.245:8081/ and http://139.162.32.245:8082/, respectively.
 
-## Enable BitTube emission
+## Enable IPBC emission
 
-Obtaining current BitTube emission amount is not straight forward. Thus, by default it is
+Obtaining current IPBC emission amount is not straight forward. Thus, by default it is
 disabled. To enable it use `--enable-emission-monitor` flag, e.g.,
 
 
 ```bash
-bittube-blockchain-explorer --enable-emission-monitor
+ipbc-blockchain-explorer --enable-emission-monitor
 ```
 
 This flag will enable emission monitoring thread. When started, the thread
  will initially scan the entire blockchain, and calculate the cumulative emission based on each block.
 Since it is a separate thread, the explorer will work as usual during this time.
 Every 10000 blocks, the thread will save current emission in a file, by default,
- in `~/.bittube/lmdb/emission_amount.txt`. For testnet or stagenet networks,
- it is `~/.bittube/testnet/lmdb/emission_amount.txt` or `~/.bittube/stagenet/lmdb/emission_amount.txt`. This file is used so that we don't
+ in `~/.ipbc/lmdb/emission_amount.txt`. For testnet or stagenet networks,
+ it is `~/.ipbc/testnet/lmdb/emission_amount.txt` or `~/.ipbc/stagenet/lmdb/emission_amount.txt`. This file is used so that we don't
  need to rescan entire blockchain whenever the explorer is restarted. When the
- explorer restarts, the thread will first check if `~/.bittube/lmdb/emission_amount.txt`
+ explorer restarts, the thread will first check if `~/.ipbc/lmdb/emission_amount.txt`
  is present, read its values, and continue from there if possible. Subsequently, only the initial
  use of the tread is time consuming. Once the thread scans the entire blockchain, it updates
  the emission amount using new blocks as they come. Since the explorer writes this file, there can
@@ -207,10 +207,10 @@ Every 10000 blocks, the thread will save current emission in a file, by default,
  displayed on the front page, e.g., :
 
 ```
-BitTube emission (fees) is 14485540.430 (52545.373) as of 1313448 block
+IPBC emission (fees) is 14485540.430 (52545.373) as of 1313448 block
 ```
 
-The values given, can be checked using BitTube daemon's  `print_coinbase_tx_sum` command.
+The values given, can be checked using IPBC daemon's  `print_coinbase_tx_sum` command.
 For example, for the above example: `print_coinbase_tx_sum 0 1313449`.
 
 To disable the monitor, simply restart the explorer without `--enable-emission-monitor` flag.
@@ -221,7 +221,7 @@ By default, decoding and proving tx's outputs are done on the server side. To do
 (private view and tx keys are not send to the server) JavaScript-based decoding can be enabled:
 
 ```
-bittube-blockchain-explorer --enable-js
+ipbc-blockchain-explorer --enable-js
 ```
 
 ## Enable SSL (https)
@@ -237,10 +237,10 @@ openssl req -new -key server.key -out server.csr
 openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.crt
 ```
 
-Having the `crt` and `key` files, run `bittube-blockchain-explorer` in the following way:
+Having the `crt` and `key` files, run `ipbc-blockchain-explorer` in the following way:
 
 ```bash
-./bittube-blockchain-explorer --ssl-crt-file=/tmp/server.crt --ssl-key-file=/tmp/server.key
+./ipbc-blockchain-explorer --ssl-crt-file=/tmp/server.crt --ssl-key-file=/tmp/server.key
 ```
 
 Note: Because we generated our own certificate, modern browsers will complain
@@ -253,7 +253,7 @@ The explorer has JSON api. For the API, it uses conventions defined by [JSend](h
 By default the api is disabled. To enable it, use `--enable-json-api` flag, e.g.,
 
 ```
-./bittube-blockchain-explorer --enable-json-api
+./ipbc-blockchain-explorer --enable-json-api
 ```
 
 #### api/transaction/<tx_hash>
@@ -519,7 +519,7 @@ For this, we use recipient's address and our tx private key as a viewkey value,
 Checking outputs:
 
 ```bash
-# we use here official BitTube project's donation address as an example
+# we use here official IPBC project's donation address as an example
 curl  -w "\n" -X GET "http://127.0.0.1:8081/api/outputs?txhash=17049bc5f2d9fbca1ce8dae443bbbbed2fc02f1ee003ffdd0571996905faa831&address=44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A&viewkey=f359631075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389501&txprove=0"
 ```
 
@@ -706,10 +706,10 @@ curl  -w "\n" -X GET "http://127.0.0.1:8081/api/version"
   "data": {
     "api": 65536,
     "blockchain_height": 1357031,
-    "git_branch_name": "update_to_current_bittube",
+    "git_branch_name": "update_to_current_ipbc",
     "last_git_commit_date": "2017-07-25",
     "last_git_commit_hash": "a549f25",
-    "bittube_version_full": "0.10.3.1-ab594cfe"
+    "ipbc_version_full": "0.10.3.1-ab594cfe"
   },
   "status": "success"
 }
@@ -726,7 +726,7 @@ var api_minor = response.data.api & 0xffff;
 
 #### api/rawblock/<block_number|block_hash>
 
-Return raw json block data, as represented in BitTube.
+Return raw json block data, as represented in IPBC.
 
 ```bash
 curl  -w "\n" -X GET "http://139.162.32.245:8081/api/rawblock/1293257"
@@ -736,7 +736,7 @@ Example result not shown.
 
 #### api/rawtransaction/<tx_hash>
 
-Return raw json tx data, as represented in BitTube.
+Return raw json tx data, as represented in IPBC.
 
 ```bash
 curl  -w "\n" -X GET "http://139.162.32.245:8081/api/rawtransaction/6093260dbe79fd6277694d14789dc8718f1bd54457df8bab338c2efa3bb0f03d"

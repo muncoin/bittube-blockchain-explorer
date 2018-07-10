@@ -72,7 +72,7 @@ get_tx_pub_key_from_str_hash(Blockchain& core_storage, const string& hash_str, t
 }
 
 /**
-* Parse BitTube address in a string form into
+* Parse IPBC address in a string form into
 * cryptonote::account_public_address object
 */
 bool
@@ -92,7 +92,7 @@ parse_str_address(const string& address_str,
 
 
 /**
-* Return string representation of BitTube address
+* Return string representation of IPBC address
 */
 string
 print_address(const address_parse_info& address_info, cryptonote::network_type nettype)
@@ -239,19 +239,19 @@ generate_key_image(const crypto::key_derivation& derivation,
 string
 get_default_lmdb_folder(cryptonote::network_type nettype)
 {
-    // default path to BitTube folder
-    // on linux this is /home/<username>/.bittube
-    string default_bittube_dir = tools::get_default_data_dir();
+    // default path to IPBC folder
+    // on linux this is /home/<username>/.ipbc
+    string default_ipbc_dir = tools::get_default_data_dir();
 
     if (nettype == cryptonote::network_type::TESTNET)
-        default_bittube_dir += "/testnet";
+        default_ipbc_dir += "/testnet";
     if (nettype == cryptonote::network_type::STAGENET)
-        default_bittube_dir += "/stagenet";
+        default_ipbc_dir += "/stagenet";
 
 
     // the default folder of the lmdb blockchain database
     // is therefore as follows
-    return default_bittube_dir + string("/lmdb");
+    return default_ipbc_dir + string("/lmdb");
 }
 
 

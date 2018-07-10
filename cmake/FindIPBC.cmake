@@ -2,8 +2,8 @@
 # CMake helper for the majority of the cpp-ethereum modules.
 #
 # This module defines
-#     BitTube_XXX_LIBRARIES, the libraries needed to use ethereum.
-#     BitTube_FOUND, If false, do not try to use ethereum.
+#     IPBC_XXX_LIBRARIES, the libraries needed to use ethereum.
+#     IPBC_FOUND, If false, do not try to use ethereum.
 #
 # File addetped from cpp-ethereum
 #
@@ -32,7 +32,7 @@ set(LIBS common;blocks;cryptonote_basic;cryptonote_core;multisig;
 		cryptonote_protocol;daemonizer;mnemonics;epee;lmdb;device;
 		blockchain_db;ringct;wallet;cncrypto;easylogging;version;checkpoints)
 
-set(BitTube_INCLUDE_DIRS "${CPP_BITTUBE_DIR}")
+set(IPBC_INCLUDE_DIRS "${CPP_IPBC_DIR}")
 
 # if the project is a subset of main cpp-ethereum project
 # use same pattern for variables as Boost uses
@@ -41,37 +41,37 @@ foreach (l ${LIBS})
 
 	string(TOUPPER ${l} L)
 
-	find_library(BitTube_${L}_LIBRARY
+	find_library(IPBC_${L}_LIBRARY
 		NAMES ${l}
 		PATHS ${CMAKE_LIBRARY_PATH}
 		PATH_SUFFIXES "/src/${l}" "/src/" "/external/db_drivers/lib${l}" "/lib" "/src/crypto" "/contrib/epee/src" "/external/easylogging++/"
 		NO_DEFAULT_PATH
 	)
 
-	set(BitTube_${L}_LIBRARIES ${BitTube_${L}_LIBRARY})
+	set(IPBC_${L}_LIBRARIES ${IPBC_${L}_LIBRARY})
 
-	message(STATUS FindBitTube " BitTube_${L}_LIBRARIES ${BitTube_${L}_LIBRARY}")
+	message(STATUS FindIPBC " IPBC_${L}_LIBRARIES ${IPBC_${L}_LIBRARY}")
 
 	add_library(${l} STATIC IMPORTED)
-	set_property(TARGET ${l} PROPERTY IMPORTED_LOCATION ${BitTube_${L}_LIBRARIES})
+	set_property(TARGET ${l} PROPERTY IMPORTED_LOCATION ${IPBC_${L}_LIBRARIES})
 
 endforeach()
 
-if (EXISTS ${BITTUBE_BUILD_DIR}/src/ringct/libringct_basic.a)
-	message(STATUS FindBitTube " found libringct_basic.a")
+if (EXISTS ${IPBC_BUILD_DIR}/src/ringct/libringct_basic.a)
+	message(STATUS FindIPBC " found libringct_basic.a")
 	add_library(ringct_basic STATIC IMPORTED)
 	set_property(TARGET ringct_basic
-			PROPERTY IMPORTED_LOCATION ${BITTUBE_BUILD_DIR}/src/ringct/libringct_basic.a)
+			PROPERTY IMPORTED_LOCATION ${IPBC_BUILD_DIR}/src/ringct/libringct_basic.a)
 endif()
 
 
-message(STATUS ${BITTUBE_SOURCE_DIR}/build)
+message(STATUS ${IPBC_SOURCE_DIR}/build)
 
-# include BitTube headers
+# include IPBC headers
 include_directories(
-		${BITTUBE_SOURCE_DIR}/src
-		${BITTUBE_SOURCE_DIR}/external
-		${BITTUBE_SOURCE_DIR}/build
-		${BITTUBE_SOURCE_DIR}/external/easylogging++
-		${BITTUBE_SOURCE_DIR}/contrib/epee/include
-		${BITTUBE_SOURCE_DIR}/external/db_drivers/liblmdb)
+		${IPBC_SOURCE_DIR}/src
+		${IPBC_SOURCE_DIR}/external
+		${IPBC_SOURCE_DIR}/build
+		${IPBC_SOURCE_DIR}/external/easylogging++
+		${IPBC_SOURCE_DIR}/contrib/epee/include
+		${IPBC_SOURCE_DIR}/external/db_drivers/liblmdb)
