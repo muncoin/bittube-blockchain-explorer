@@ -1,8 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: #93a3b6;
+    font-family: sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,23 +33,23 @@ td {
 }
 
 a:link {
-    text-decoration: none;
-    color: white;
+    text-decoration: underline;
+    color: #5555ff;
 }
 
 a:visited {
-    text-decoration: none;
-    color: white;
+    text-decoration: underline;
+    color: #5555ff;
 }
 
 a:hover {
     text-decoration: underline;
-    color: white;
+    color: #aaaaff;
 }
 
 a:active {
-    text-decoration: none;
-    color: white;
+    text-decoration: underline;
+    color: #5555ff;
 }
 
 form {
