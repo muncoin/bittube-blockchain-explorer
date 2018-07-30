@@ -126,7 +126,7 @@ label#show-decoded-inputs {
     display: inline-block;
     /*margin: 60px 0 10px 0;*/
     cursor: pointer;
-    background-color: black;
+    background-color: #697e90;
     color: white;
     width: 100%;
     text-align: center;
