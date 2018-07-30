@@ -81,7 +81,7 @@ form {
 }
 
 .tab label {
-    background: black;
+    background: #a0a8b2;
     padding: 10px;
     border: 1px solid #ccc;
     margin-left: -1px;
@@ -97,7 +97,7 @@ form {
     position: absolute;
     top: 28px;
     left: 0;
-    background: black;
+    background: #c0d2e5;
     right: 0;
     bottom: 0;
     padding: 20px;
@@ -105,8 +105,8 @@ form {
 }
 
 [type=radio]:checked ~ label {
-    background: #505050 ;
-    border-bottom: 1px solid white;
+    background: #c0d2e5 ;
+    //border-bottom: 1px solid white;
     z-index: 2;
 }
 
@@ -126,7 +126,7 @@ label#show-decoded-inputs {
     display: inline-block;
     /*margin: 60px 0 10px 0;*/
     cursor: pointer;
-    background-color: black;;
+    background-color: black;
     color: white;
     width: 100%;
     text-align: center;
