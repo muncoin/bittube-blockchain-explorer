@@ -11,26 +11,14 @@
     <style type="text/css">
         {{#css_styles}}{{/css_styles}}
     </style>
-
     {{#js_files}}{{/js_files}}
-
 </head>
 <body>
 <div>
-
-    <div class="center">
-        <h1 class="center" style="margin-top:20px"><a href="/" style="text-decoration: none;color:white;">IPBC
-         {{#testnet}}
-            <span style="color:#ff6b62">Testnet</span>
-         {{/testnet}}
-		Blockchain Explorer</a></h1>
-         {{#testnet}}
-        	<h4 style="font-size: 15px; margin: 20px"><a target="_blank" style="color:black" href="https://testnet-wallet.ipbc.rocks/">Testnet Webwallet</a>
-			| <a target="_blank" style="color:black" href="https://testnet-mining.ipbc.rocks/">Testnet Pool</a></h4>
-         {{/testnet}}
+    <div class="center header-title">
+        <h1 class="center"><a href="/">IPBC Blockchain Explorer</a></h1>
+        <h4 style="font-size: 15px; margin: 0px">({{^enable_js}}no javascript - {{/enable_js}}no cookies - no web analytics trackers - no images - open sourced)</h4>
     </div>
-
-
     <div class="center">
         <form action="/search" method="get" style="width:100%; margin:20px" class="style-1">
             <input type="text" name="value" size="120"
@@ -38,5 +26,4 @@
             <input type="submit" value="Search">
         </form>
     </div>
-
 </div>
